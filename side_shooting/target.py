@@ -15,7 +15,7 @@ class Target:
         self.rect.centery = self.screen_rect.centery
 
         self.y = float(self.rect.y)
-        self.speed = 0.5 
+        self.speed = 1 
         self.direction = 1 #`direction` 为 1 表示向下，为 -1 表示向上
 
 
