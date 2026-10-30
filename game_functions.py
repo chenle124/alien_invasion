@@ -130,6 +130,6 @@ def check_fleet_edges(ai_settings,aliens):
     """有外星人到达边缘时，让整个编队下降并转向"""
 
     for alien in aliens.sprites():
-        if alien.check_edges:
+        if alien.check_edges():
             change_fleet_direction(ai_settings,aliens)
             break #break 用来退出这次 for 循环，避免同一轮中多个外星人碰到边缘，导致整个编队重复下降、反复改变方向。
