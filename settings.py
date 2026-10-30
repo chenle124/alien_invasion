@@ -21,4 +21,4 @@ class Settings:
         self.alien_speed_factor = 2
 
         self.fleet_drop_speed = 10 #每次碰到边缘，整个编队向下移动 10 像素
-        self.fleet_direction #水平移动方向：`1` 向右，`-1` 向左
+        self.fleet_direction = 1 #水平移动方向：`1` 向右，`-1` 向左
