@@ -113,3 +113,12 @@ def create_fleet(ai_settings,screen,aliens,ship):
 def update_aliens(aliens):
     """更新外星人群的位置"""
     aliens.update()
+
+
+def change_fleet_direction(ai_settings,aliens):
+    """让整个编队下降，并改变移动方向"""
+
+    for alien in aliens.sprites():
+        alien.rect.y += ai_settings.fleet_drop_speed
+
+    ai_settings.fleet_direction *= -1
