@@ -11,7 +11,8 @@ class Alien(Sprite):
         self.ai_settings = ai_settings
         self.screen = screen #保存绘制用的屏幕
 
-        self.image = pygame.image.load("images/alien.bmp") #加载外星人图片
+        self.image = pygame.image.load("images/star.png") #加载星星图片
+        self.image = pygame.transform.scale(self.image,(50,50)) #把原图缩放为宽 50、高 50 像素，返回缩放后的图片，再保存回 self.image
         self.rect = self.image.get_rect() #获取图片对应的矩形，用来管理位置和大小
 
         #每个外星人最终都在屏幕左上角附近
