@@ -67,7 +67,7 @@ def update_bullets(bullets):
 def check_bullet_target_collision(bullets,target):
     """检查子弹是否击中目标"""
     for bullet in bullets.copy():
-        if bullet.rect.colliderect(target.rect):
+        if bullet.rect.colliderect(target.rect): #这里的新方法用来检查两个矩形是否重叠：重叠，返回True，执行删除子弹和打印；不重叠，返回False.
             bullets.remove(bullet)
             print("击中目标")
 
