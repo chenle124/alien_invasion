@@ -1,4 +1,5 @@
 import pygame
+from random import randint
 
 class Target:
     """表示屏幕右侧的射击目标"""
@@ -33,6 +34,13 @@ class Target:
             self.rect.top = self.screen_rect.top
             self.y = float(self.rect.y)
             self.direction = 1
+
+
+    def reset_position(self):
+        """把目标移动随机的垂直位置"""
+
+        self.rect.y = randint(0,self.screen_rect.height - self.rect.height)
+        self.y = float(self.rect.y) #self.y 需要同步，否则下一次 update() 会用旧的浮点位置把目标移回去
 
     def draw_target(self):
         """绘制目标"""
