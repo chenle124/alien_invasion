@@ -110,8 +110,10 @@ def create_fleet(ai_settings,screen,aliens,ship):
             create_alien(ai_settings,screen,aliens,alien_number,row_number)
 
 
-def update_aliens(aliens):
-    """更新外星人群的位置"""
+def update_aliens(ai_settings,aliens):
+    """检查边缘，再更新外星人群的位置"""
+
+    check_fleet_edges(ai_settings,aliens)
     aliens.update()
 
 
@@ -122,3 +124,12 @@ def change_fleet_direction(ai_settings,aliens):
         alien.rect.y += ai_settings.fleet_drop_speed
 
     ai_settings.fleet_direction *= -1
+
+
+def check_fleet_edges(ai_settings,aliens):
+    """有外星人到达边缘时，让整个编队下降并转向"""
+
+    for alien in aliens.sprites:
+        if alien.check_edges:
+            change_fleet_direction(ai_settings,aliens)
+            break #break 用来退出这次 for 循环，避免同一轮中多个外星人碰到边缘，导致整个编队重复下降、反复改变方向。
