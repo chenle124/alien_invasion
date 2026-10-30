@@ -8,7 +8,7 @@ class Settings:
         self.screen_height = 800
         self.bg_color = (230,230,230)
 
-        self.ship_speed_factor = 1.5 #表示飞船每轮循环移动的距离
+        self.ship_speed_factor = 3 #表示飞船每轮循环移动的距离
 
         #子弹设置
         self.bullet_speed_factor = 1
