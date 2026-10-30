@@ -17,7 +17,7 @@ def run_game():
     bullets = Group() #编组 Group 可以理解为专门管理精灵对象的容器。
     aliens = Group() #管理多个外星人的编组
 
-    gf.create_fleet(ai_settings,screen,aliens)
+    gf.create_fleet(ai_settings,screen,aliens,ship)
 
     while True:
         gf.check_events(ai_settings, screen, ship, bullets)
