@@ -57,7 +57,7 @@ def update_screen(ai_settings,screen,ship,aliens,bullets):
     pygame.display.flip() #更新窗口画面
 
 
-def update_bullets(bullets):
+def update_bullets(aliens,bullets):
     """更新子弹位置，并移除已飞出屏幕的子弹"""
 
     bullets.update() #bullets 是一个编组。不仅能保存子弹，还自带一个 update() 方法，负责逐个调用成员的 update()。
@@ -66,6 +66,10 @@ def update_bullets(bullets):
         if bullet.rect.bottom <=0:
             bullets.remove(bullet) #修改原编组
 
+    #检查是否有子弹击中了外星人
+    collisions = pygame.sprite.groupcollide(bullets,aliens,True,True) #(第一个编组：子弹， 第二个编组：外星人， 发生碰撞时从子弹编组移除命中的子弹， 发生碰撞时从外星人编组移除被击中的外星人)
+    #返回值 collisions 是一个字典，用来记录哪些子弹碰到了哪些外星人
+    #注意：默认检测的是矩形重叠，不是图片中具体的轮廓
 
 def fire_bullet(ai_settings,screen,ship,bullets):
     if len(bullets) < ai_settings.bullets_allowed:
