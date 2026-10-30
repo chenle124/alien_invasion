@@ -21,7 +21,7 @@ class Target:
 
     def update(self):
         """上下移动目标，碰到边缘后反向"""
-        self.y = self.speed * self.direction
+        self.y += self.speed * self.direction
         self.rect.y = self.y
 
         if self.rect.bottom >= self.screen_rect.bottom:
