@@ -20,6 +20,7 @@ class Alien(Sprite):
         self.rect.y = self.rect.height #self.rect.y：外星人顶边的 y 坐标
 
         self.x = float(self.rect.x)
+        self.y = float(self.rect.y)
 
 
     def check_edges(self):
@@ -33,8 +34,8 @@ class Alien(Sprite):
 
     def update(self):
         """根据编队方向左右移动"""
-        self.x += self.ai_settings.alien_speed_factor*self.ai_settings.fleet_direction
-        self.rect.x = self.x
+        self.y += self.ai_settings.alien_speed_factor
+        self.rect.y = self.y
 
 
 #    def blitme(self):
