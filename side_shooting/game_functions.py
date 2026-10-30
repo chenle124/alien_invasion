@@ -41,13 +41,15 @@ def check_keyup_events(event,ship):
         ship.moving_up = False
 
 
-def update_screen(ai_settings,screen,ship,bullets):
+def update_screen(ai_settings,screen,ship,bullets,target):
     screen.fill(ai_settings.bg_color) #顺序很重要：先画背景，再画飞船，最后显示画面。 如果先画飞船再填满背景，飞船就会被背景盖住。
 
     for bullet in bullets.sprites(): #sprites() 是 Pygame 的 Group 类已经提供的方法，作用是返回编组中所有精灵对象组成的列表。
         bullet.draw_bullet()
 
     ship.blitme()
+
+    target.draw_target()
 
     pygame.display.flip() #更新窗口画面
 

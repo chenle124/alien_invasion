@@ -4,6 +4,7 @@ from pygame.sprite import Group
 from settings import Settings
 from ship import Ship
 import game_functions as gf
+from target import Target
 
 def run_game():
     pygame.init() #初始化Pygame，为使用它的功能做好准备
@@ -16,10 +17,12 @@ def run_game():
     ship = Ship(ai_settings,screen)
     bullets = Group() #编组 Group 可以理解为专门管理精灵对象的容器。
 
+    target = Target(screen)
+
     while True:
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update() #更新一艘飞船的位置
         gf.update_bullets(bullets)
-        gf.update_screen(ai_settings,screen,ship,bullets)
+        gf.update_screen(ai_settings,screen,ship,bullets,target)
 
 run_game()
