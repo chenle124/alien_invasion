@@ -82,7 +82,7 @@ def get_number_aliens_x(ai_settings,alien_width):
     availble_space_x = ai_settings.screen_width - 2*alien_width
     number_aliens_x = int(availble_space_x/(2*alien_width))
 
-    return number_aliens_x 
+    return min(number_aliens_x,7) 
 
 
 def get_number_rows(ai_settings,alien_height,ship_height):
@@ -90,7 +90,7 @@ def get_number_rows(ai_settings,alien_height,ship_height):
     available_space_y = ai_settings.screen_height - 3*alien_height - ship_height
     number_rows = int(available_space_y/(2*alien_height))
 
-    return number_rows
+    return min(number_rows,3)
 
 
 def create_alien(ai_settings,screen,aliens,alien_number,row_number):
