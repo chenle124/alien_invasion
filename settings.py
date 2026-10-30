@@ -16,3 +16,6 @@ class Settings:
         self.bullet_height = 15
         self.bullet_color = (60,60,60)
         self.bullets_allowed = 3 #表示最多同时保留 3 颗子弹，不是整局只能发射 3 颗。
+
+        #外星人设置
+        self.alien_speed_factor = 2
