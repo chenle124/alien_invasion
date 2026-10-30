@@ -89,11 +89,12 @@ def get_number_rows(ai_settings,alien_height,ship_height):
     return number_rows
 
 
-def create_alien(ai_settings,screen,aliens,alien_number):
+def create_alien(ai_settings,screen,aliens,alien_number,row_number):
     """创建一个外星人，并将其放在当前行中"""
     alien = Alien(ai_settings,screen)
     alien.x = alien.rect.width + 2*alien.rect.width*alien_number
     alien.rect.x = alien.x
+    alien.rect.y = alien.rect.height + 2*alien.rect.height*row_number #不使用alien.y的原因：外星人的垂直位置只在创建时设置一次，而且计算出来就是整数，不需要保留、累积小数
     aliens.add(alien)
 
 
