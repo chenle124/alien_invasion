@@ -113,8 +113,6 @@ def create_fleet(ai_settings,screen,aliens,ship):
 
 def update_aliens(ai_settings,aliens):
     """检查边缘，再更新外星人群的位置"""
-
-    check_fleet_edges(ai_settings,aliens)
     aliens.update()
 
 
