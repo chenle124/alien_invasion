@@ -112,6 +112,10 @@ def update_aliens(ai_settings,aliens):
     """检查边缘，再更新外星人群的位置"""
     aliens.update()
 
+    for alien in aliens.copy():
+        if alien.rect.y >= ai_settings.screen_height:
+            aliens.remove(alien)
+
 
 def change_fleet_direction(ai_settings,aliens):
     """让整个编队下降，并改变移动方向"""
