@@ -64,6 +64,13 @@ def update_bullets(bullets):
             bullets.remove(bullet) #修改原编组
 
 
+def check_bullet_target_collision(bullets,target):
+    """检查子弹是否击中目标"""
+    for bullet in bullets.copy():
+        if bullet.rect.colliderect(target.rect):
+            bullets.remove(bullet)
+            print("击中目标")
+
 def fire_bullet(ai_settings,screen,ship,bullets):
     if len(bullets) < ai_settings.bullets_allowed:
         new_bullet = Bullet(ai_settings,screen,ship)
