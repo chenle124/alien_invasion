@@ -114,7 +114,8 @@ def update_aliens(ai_settings,aliens):
 
     for alien in aliens.copy():
         if alien.rect.y >= ai_settings.screen_height:
-            aliens.remove(alien)
+            alien.rect.bottom = 0
+            alien.y = float(alien.rect.y) #如果不修改 alien.y，下一轮就会从 800.0 继续加，随后覆盖矩形位置，雨滴又跳回屏幕下面
 
 
 def change_fleet_direction(ai_settings,aliens):
