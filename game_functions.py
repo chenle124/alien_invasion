@@ -94,7 +94,8 @@ def create_alien(ai_settings,screen,aliens,alien_number,row_number):
     alien = Alien(ai_settings,screen)
     alien.x = alien.rect.width + 2*alien.rect.width*alien_number
     alien.rect.x = alien.x
-    alien.rect.y = alien.rect.height + 2*alien.rect.height*row_number #不使用alien.y的原因：外星人的垂直位置只在创建时设置一次，而且计算出来就是整数，不需要保留、累积小数
+    alien.rect.y = alien.rect.height + 2*alien.rect.height*row_number #不使用alien.y的原因：外星人的垂直位置只在创建时设置一次，而且计算出来就是整数，不需要保留、累积小数。
+    alien.y = float(alien.rect.y)
     aliens.add(alien)
 
 
