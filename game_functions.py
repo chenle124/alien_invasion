@@ -209,3 +209,17 @@ def check_play_button(ai_settings,screen,aliens,ship,bullets,stats,play_button,m
 
         create_fleet(ai_settings,screen,aliens,ship)
         ship.center_ship()
+
+
+def start_game(ai_settings,screen,aliens,ship,bullets,stats):
+    """重置并开始新游戏"""
+    pygame.mouse.set_visible(False)
+    
+    stats.reset_stats()
+    stats.game_active = True
+
+    aliens.empty()
+    bullets.empty()
+
+    create_fleet(ai_settings,screen,aliens,ship)
+    ship.center_ship()
