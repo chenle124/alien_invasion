@@ -14,7 +14,7 @@ def check_events(ai_settings, screen, aliens,ship, bullets,stats,play_button):
             sys.exit() #退出程序
 
         elif event.type == pygame.KEYDOWN:
-            check_keydown_events(event, ai_settings, screen, ship, bullets)
+            check_keydown_events(event, ai_settings, screen, aliens,ship, bullets,stats)
 
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
