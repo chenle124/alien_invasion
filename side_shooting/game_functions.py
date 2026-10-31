@@ -4,7 +4,7 @@ import pygame
 
 from bullet import Bullet
 
-def check_events(ai_settings, screen, ship, bullets):
+def check_events(ai_settings, screen, ship, bullets,stats):
     """响应键盘和鼠标事件"""
 
     for event in pygame.event.get(): #逐个处理事件。“事件”就是点击鼠标、按下键盘、点击关闭按钮等操作。
@@ -12,13 +12,13 @@ def check_events(ai_settings, screen, ship, bullets):
             sys.exit() #退出程序
 
         elif event.type == pygame.KEYDOWN:
-            check_keydown_events(event, ai_settings, screen, ship, bullets)
+            check_keydown_events(event, ai_settings, screen, ship, bullets,stats)
 
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
 
 
-def check_keydown_events(event, ai_settings, screen, ship, bullets):
+def check_keydown_events(event, ai_settings, screen, ship, bullets,stats):
     """响应按钮"""
 
     if event.key == pygame.K_DOWN:
@@ -28,7 +28,8 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
         ship.moving_up = True
 
     elif event.key == pygame.K_SPACE:
-        fire_bullet(ai_settings,screen,ship,bullets)
+        if stats.game_active:
+            fire_bullet(ai_settings,screen,ship,bullets)
 
 
 def check_keyup_events(event,ship):
