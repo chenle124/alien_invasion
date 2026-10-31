@@ -5,6 +5,7 @@ from settings import Settings
 from ship import Ship
 import game_functions as gf
 from target import Target
+from game_stats import GameStats
 
 def run_game():
     pygame.init() #初始化Pygame，为使用它的功能做好准备
@@ -18,6 +19,8 @@ def run_game():
     bullets = Group() #编组 Group 可以理解为专门管理精灵对象的容器。
 
     target = Target(screen)
+
+    stats = GameStats()
 
     while True:
         gf.check_events(ai_settings, screen, ship, bullets)
