@@ -25,6 +25,9 @@ class Settings:
         self.fleet_drop_speed = 10 #每次碰到边缘，整个编队向下移动 10 像素
         self.fleet_direction = 1 #水平移动方向：`1` 向右，`-1` 向左
 
+        #每次升级时，速度变为原来的1.1倍
+        self.speedup_scale = 1.1
+
         self.initialize_dynamic_settings()
 
 
@@ -35,3 +38,11 @@ class Settings:
         self.alien_speed_factor = 2
 
         self.fleet_direction = 1 # 1 表示向右，-1 表示向左
+
+
+    def increase_speed(self):
+        """提高飞船、子弹和外星人的速度"""
+
+        self.ship_speed_factor *= self.speedup_scale
+        self.bullet_speed_factor *= self.speedup_scale
+        self.alien_speed_factor *= self.speedup_scale
