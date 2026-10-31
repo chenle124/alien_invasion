@@ -24,7 +24,7 @@ def check_events(ai_settings, screen, aliens,ship, bullets,stats,play_button):
             check_play_button(ai_settings,screen,aliens,ship,bullets,stats,play_button,mouse_x,mouse_y)
 
 
-def check_keydown_events(event, ai_settings, screen, ship, bullets):
+def check_keydown_events(event, ai_settings, screen,aliens, ship, bullets,stats):
     """响应按钮"""
 
     if event.key == pygame.K_RIGHT:
@@ -38,6 +38,10 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
 
     elif event.key == pygame.K_q:
         sys.exit()
+
+    elif event.key == pygame.K_p:
+        if not stats.game_active:
+            start_game(ai_settings,screen,aliens,ship,bullets,stats)
 
 
 def check_keyup_events(event,ship):
