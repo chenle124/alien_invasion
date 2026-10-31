@@ -6,6 +6,7 @@ from ship import Ship
 import game_functions as gf
 from target import Target
 from game_stats import GameStats
+from button import Button
 
 def run_game():
     pygame.init() #初始化Pygame，为使用它的功能做好准备
@@ -22,6 +23,8 @@ def run_game():
 
     stats = GameStats()
 
+    play_button = Button(screen,"Play")
+
     while True:
         gf.check_events(ai_settings, screen, ship, bullets,stats)
 
@@ -33,6 +36,6 @@ def run_game():
             if stats.game_active: #碰撞检测使用的是本轮更新后的位置。第二个 if 则确保第三次未命中后，本轮不再处理目标碰撞。
                 gf.check_bullet_target_collision(bullets,target)
 
-        gf.update_screen(ai_settings,screen,ship,bullets,target)
+        gf.update_screen(ai_settings,screen,ship,bullets,target,stats,play_button)
 
 run_game()
