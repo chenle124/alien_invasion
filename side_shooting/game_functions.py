@@ -54,7 +54,7 @@ def update_screen(ai_settings,screen,ship,bullets,target):
     pygame.display.flip() #更新窗口画面
 
 
-def update_bullets(bullets):
+def update_bullets(bullets,stats):
     """更新子弹位置，并移除已飞出屏幕的子弹"""
 
     bullets.update() #bullets 是一个编组。不仅能保存子弹，还自带一个 update() 方法，负责逐个调用成员的 update()。
@@ -62,6 +62,9 @@ def update_bullets(bullets):
     for bullet in bullets.sprites(): #遍历时如果同时修改正在遍历的容器，可能影响遍历过程。复制的是编组容器，没有复制出新的子弹。
         if bullet.rect.left >= bullet.screen.get_rect().right:
             bullets.remove(bullet) #修改原编组
+
+            stats.missed_shots += 1
+            print(f"未命中次数：{stats.missed_shots}")
 
 
 def check_bullet_target_collision(bullets,target):
