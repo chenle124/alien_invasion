@@ -86,7 +86,7 @@ def check_bullet_alien_collisions(ai_settings,screen,aliens,ship,bullets):
     #注意：默认检测的是矩形重叠，不是图片中具体的轮廓
     
     if len(aliens) == 0:
-        bullets.copy()
+        bullets.empty()
         create_fleet(ai_settings,screen,aliens,ship)
 
 def fire_bullet(ai_settings,screen,ship,bullets):
