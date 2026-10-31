@@ -5,6 +5,7 @@ from settings import Settings
 from ship import Ship
 import game_functions as gf
 from game_stats import GameStats
+from button import Button
 
 def run_game():
     pygame.init() #初始化Pygame，为使用它的功能做好准备
@@ -22,6 +23,8 @@ def run_game():
 
     stats = GameStats(ai_settings) #创建记录游戏统计信息的对象
 
+    play_button = Button(screen,"Play")
+
     while True:
         gf.check_events(ai_settings, screen, ship, bullets)
 
@@ -30,6 +33,6 @@ def run_game():
             gf.update_bullets(ai_settings,screen,aliens,ship,bullets)
             gf.update_aliens(ai_settings,screen,ship,aliens,bullets,stats)
 
-        gf.update_screen(ai_settings,screen,ship,aliens,bullets)
+        gf.update_screen(ai_settings,screen,ship,aliens,bullets,play_button)
 
 run_game()
