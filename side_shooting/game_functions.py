@@ -104,3 +104,4 @@ def check_play_button(bullets,target,stats,play_button,mouse_x,mouse_y):
         bullets.empty()
         target.reset_position()
         stats.game_active = True
+        pygame.mouse.set_visible(False)
