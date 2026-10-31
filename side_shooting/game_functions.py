@@ -66,6 +66,10 @@ def update_bullets(bullets,stats):
             stats.missed_shots += 1
             print(f"未命中次数：{stats.missed_shots}")
 
+            if stats.missed_shots >= 3:
+                stats.game_active = False #注意，设置 game_active = False 本身不会立即中断循环。主程序下一轮读到这个值时，才会跳过更新位置的代码。
+                break #break 退出当前 for，不再检查这一轮剩余的子弹。
+
 
 def check_bullet_target_collision(bullets,target):
     """检查子弹是否击中目标"""
