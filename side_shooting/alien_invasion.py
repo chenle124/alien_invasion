@@ -25,7 +25,7 @@ def run_game():
     while True:
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update() #更新一艘飞船的位置
-        gf.update_bullets(bullets)
+        gf.update_bullets(bullets,stats)
         target.update()
         gf.check_bullet_target_collision(bullets,target)
         gf.update_screen(ai_settings,screen,ship,bullets,target)
