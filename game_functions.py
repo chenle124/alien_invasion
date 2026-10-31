@@ -124,7 +124,7 @@ def create_fleet(ai_settings,screen,aliens,ship):
             create_alien(ai_settings,screen,aliens,alien_number,row_number)
 
 
-def update_aliens(ai_settings,ship,aliens):
+def update_aliens(ai_settings,screen,ship,aliens,bullets,stats):
     """更新外星人的位置，并检测它是否撞到飞船"""
 
     check_fleet_edges(ai_settings,aliens)
@@ -132,7 +132,7 @@ def update_aliens(ai_settings,ship,aliens):
 
     #检测外星人和飞船之间的碰撞
     if pygame.sprite.spritecollideany(ship,aliens): #意思是：检查 aliens 编组中，有没有外星人的矩形与飞船的矩形重叠。调用工具包提供的函数时，要按照它已有的定义传参。        
-        print("Ship hit!!!")
+        ship_hit(ai_settings,screen,aliens,ship,bullets,stats)
 
 
 def change_fleet_direction(ai_settings,aliens):
