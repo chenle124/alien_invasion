@@ -7,6 +7,9 @@ class GameStats:
         self.ai_settings = ai_settings
         self.reset_stats() #调用当前实例的重置方法。
 
+        #游戏启动时处于活跃状态
+        self.game_active = True
+
 
     def reset_stats(self):
         """重置游戏运行期间会变化的统计信息"""
