@@ -201,6 +201,8 @@ def check_play_button(ai_settings,screen,aliens,ship,bullets,stats,play_button,m
     button_clicked =play_button.rect.collidepoint(mouse_x,mouse_y) #collidepoint() 检查一个点是否在矩形内部。如果鼠标位置在按钮矩形内，就把游戏状态改为 True
     
     if button_clicked and not stats.game_active: 
+        ai_settings.initialize_dynamic_settings() #游戏结束后再次点击 Play，并不会重新执行 ai_settings = Settings()。程序仍然使用原来的 ai_settings 对象，其中保存的速度已经被上一局提高了。
+        
         pygame.mouse.set_visible(False)
         stats.reset_stats()
         stats.game_active = True
