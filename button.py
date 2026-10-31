@@ -15,7 +15,7 @@ class Button:
         self.text_color = (255,255,255)
 
         #用于绘制文字的字体
-        self.font = pygame.font.SysFont(None,48) #创建一个字体对象，之后用它把文字转换成可以绘制的图像。`None` 表示使用默认字体，`48` 指定字体大小。
+        self.font = pygame.font.Font(None,48) #创建一个字体对象，之后用它把文字转换成可以绘制的图像。`None` 表示使用默认字体，`48` 指定字体大小。Font(None, 48)：直接使用 Pygame 自带的默认字体，避开系统字体查找过程。
 
         #创建矩形按钮，并放置在屏幕中央
         self.rect = pygame.Rect(0,0,self.width,self.height)
