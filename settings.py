@@ -24,3 +24,14 @@ class Settings:
 
         self.fleet_drop_speed = 10 #每次碰到边缘，整个编队向下移动 10 像素
         self.fleet_direction = 1 #水平移动方向：`1` 向右，`-1` 向左
+
+        self.initialize_dynamic_settings()
+
+
+    def initialize_dynamic_settings(self):
+        """初始化随游戏进行而变化的设置"""
+        self.ship_speed_factor = 3
+        self.bullet_speed_factor = 3
+        self.alien_speed_factor = 2
+
+        self.fleet_direction = 1 # 1 表示向右，-1 表示向左
