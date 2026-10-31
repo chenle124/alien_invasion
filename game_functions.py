@@ -6,7 +6,7 @@ from time import sleep
 from bullet import Bullet
 from alien import Alien
 
-def check_events(ai_settings, screen, ship, bullets):
+def check_events(ai_settings, screen, ship, bullets,stats,play_button):
     """响应键盘和鼠标事件"""
 
     for event in pygame.event.get(): #逐个处理事件。“事件”就是点击鼠标、按下键盘、点击关闭按钮等操作。
@@ -18,6 +18,10 @@ def check_events(ai_settings, screen, ship, bullets):
 
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
+
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_x,mouse_y =pygame.mouse.get_pos()
+            check_play_button(stats,play_button,mouse_x,mouse_y)
 
 
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
