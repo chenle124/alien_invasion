@@ -37,3 +37,9 @@ class Ship:
     def blitme(self):
         """在指定位置绘制飞船"""        
         self.screen.blit(self.image,self.rect) #在 self.screen 这块屏幕上，把 self.image 飞船图片画到 self.rect 指定的位置。
+
+
+    def center_ship(self):
+        """让飞船回到屏幕中央的横向位置"""
+
+        self.rect.center = self.screen_rect.centerx
