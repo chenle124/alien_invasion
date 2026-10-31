@@ -77,6 +77,7 @@ def update_bullets(bullets,stats):
 
             if stats.missed_shots >= 3:
                 stats.game_active = False #注意，设置 game_active = False 本身不会立即中断循环。主程序下一轮读到这个值时，才会跳过更新位置的代码。
+                pygame.mouse.set_visible(True)
                 break #break 退出当前 for，不再检查这一轮剩余的子弹。
 
 
