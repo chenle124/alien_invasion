@@ -158,15 +158,20 @@ def check_fleet_edges(ai_settings,aliens):
 def ship_hit(ai_settings,screen,aliens,ship,bullets,stats):
     """响应飞船被外星人撞到"""
 
-    stats.ships_left -= 1
+    if stats.ships_left > 0:
+        stats.ships_left -= 1
+        
+        aliens.empty()
+        bullets.empty()
+        
+        create_fleet(ai_settings,screen,aliens,ship)
+        ship.center_ship()
+        
+        sleep(0.5) #可以让程序暂停半秒
 
-    aliens.empty()
-    bullets.empty()
+    else:
+        stats.game_active = False
 
-    create_fleet(ai_settings,screen,aliens,ship)
-    ship.center_ship()
-
-    sleep(0.5) #可以让程序暂停半秒
 
 
 def check_aliens_bottom(ai_settings,screen,aliens,ship,bullets,stats):
