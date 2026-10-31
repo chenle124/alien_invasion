@@ -87,6 +87,7 @@ def check_bullet_target_collision(bullets,target):
         if bullet.rect.colliderect(target.rect): #这里的新方法用来检查两个矩形是否重叠：重叠，返回True，执行删除子弹和打印；不重叠，返回False.
             bullets.remove(bullet)
             target.reset_position()
+            target.speed *= 1.1
             break #注意：它只能避免同一轮遍历中连续命中。也可以不加
 
 def fire_bullet(ai_settings,screen,ship,bullets):
