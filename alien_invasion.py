@@ -4,6 +4,7 @@ from pygame.sprite import Group
 from settings import Settings
 from ship import Ship
 import game_functions as gf
+from game_stats import GameStats
 
 def run_game():
     pygame.init() #初始化Pygame，为使用它的功能做好准备
@@ -18,6 +19,8 @@ def run_game():
     aliens = Group() #管理多个外星人的编组
 
     gf.create_fleet(ai_settings,screen,aliens,ship)
+
+    stats = GameStats(ai_settings) #创建记录游戏统计信息的对象
 
     while True:
         gf.check_events(ai_settings, screen, ship, bullets)
