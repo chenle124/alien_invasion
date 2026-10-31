@@ -191,3 +191,10 @@ def check_aliens_bottom(ai_settings,screen,aliens,ship,bullets,stats):
         if alien.rect.bottom >= screen_rect.bottom:
             ship_hit(ai_settings,screen,aliens,ship,bullets,stats)
             break #这里的 break 有明确用途：发现一个外星人到达底端，就处理一次，然后停止检查旧的外星人列表。因为 ship_hit() 已经清空旧编组并创建了新群，继续检查旧列表可能导致重复扣除飞船数量。
+
+
+def check_play_button(stats,play_button,mouse_x,mouse_y):
+    """玩家点击Play按钮时开始游戏"""
+
+    if play_button.rect.collidepoint(mouse_x,mouse_y): #collidepoint() 检查一个点是否在矩形内部。如果鼠标位置在按钮矩形内，就把游戏状态改为 True
+        stats.game_active = True
