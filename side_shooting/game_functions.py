@@ -19,7 +19,7 @@ def check_events(ai_settings, screen, ship, bullets, stats, play_button):
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mouse_x,mouse_y = pygame.mouse.get_pos()
-            check_play_button(stats,play_button,mouse_x,mouse_y)
+            check_play_button(bullets,stats,play_button,mouse_x,mouse_y)
 
 
 def check_keydown_events(event, ai_settings, screen, ship, bullets,stats):
