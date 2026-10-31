@@ -134,6 +134,8 @@ def update_aliens(ai_settings,screen,ship,aliens,bullets,stats):
     if pygame.sprite.spritecollideany(ship,aliens): #意思是：检查 aliens 编组中，有没有外星人的矩形与飞船的矩形重叠。调用工具包提供的函数时，要按照它已有的定义传参。        
         ship_hit(ai_settings,screen,aliens,ship,bullets,stats)
 
+    check_aliens_bottom(ai_settings,screen,aliens,ship,bullets,stats)
+
 
 def change_fleet_direction(ai_settings,aliens):
     """让整个编队下降，并改变移动方向"""
