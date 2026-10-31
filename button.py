@@ -30,3 +30,11 @@ class Button:
         self.msg_image = self.font.render(msg,True,self.text_color,self.button_color) #把 msg 中的文字转换成图像。`True` 表示让文字边缘更平滑，后两个参数分别指定文字颜色和背景颜色。
         self.msg_image_rect = self.msg_image.get_rect() #获取文字图像的矩形
         self.msg_image_rect.center = self.rect.center #两个矩形的 center 相同：让文字位于按钮中央
+
+
+    def draw_button(self):
+        """绘制按钮背景和文字"""
+
+        #顺序仍然是先画背景，再画文字，否则背景可能盖住文字
+        self.screen.fill(self.button_color,self.rect) #以前用 screen.fill(颜色) 填满整个屏幕。这里多传入一个矩形，表示只填充 self.rect 指定的区域，画出绿色按钮背景。
+        self.screen.blit(self.msg_image,self.msg_image_rect) #把准备好的文字图像画到按钮中央
