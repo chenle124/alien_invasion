@@ -46,7 +46,7 @@ def check_keyup_events(event,ship):
         ship.moving_left = False
 
 
-def update_screen(ai_settings,screen,ship,aliens,bullets):
+def update_screen(ai_settings,screen,ship,aliens,bullets,stats,play_button):
     screen.fill(ai_settings.bg_color) #顺序很重要：先画背景，再画飞船，最后显示画面。 如果先画飞船再填满背景，飞船就会被背景盖住。
 
     for bullet in bullets.sprites(): #sprites() 是 Pygame 的 Group 类已经提供的方法，作用是返回编组中所有精灵对象组成的列表。
@@ -54,6 +54,10 @@ def update_screen(ai_settings,screen,ship,aliens,bullets):
 
     ship.blitme()
     aliens.draw(screen) #这是 Group 提供的绘制方法：读取编组中每个外星人的 image 和 rect，把图片画到指定屏幕上。 它不会调用外星人的 blitme()，而是直接使用这两个属性完成绘制。
+
+    #游戏未开始时或已经结束时，显示按钮
+    if not stats.game_active: #not stats.game_active 表示游戏处于非活动状态。按钮最后绘制，就会显示在飞船、子弹和外星人的上面。
+        play_button.draw_button()
 
     pygame.display.flip() #更新窗口画面
 
