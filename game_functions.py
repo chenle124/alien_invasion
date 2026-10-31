@@ -196,7 +196,9 @@ def check_aliens_bottom(ai_settings,screen,aliens,ship,bullets,stats):
 def check_play_button(ai_settings,screen,aliens,ship,bullets,stats,play_button,mouse_x,mouse_y):
     """玩家点击Play按钮时开始游戏"""
 
-    if play_button.rect.collidepoint(mouse_x,mouse_y): #collidepoint() 检查一个点是否在矩形内部。如果鼠标位置在按钮矩形内，就把游戏状态改为 True
+    button_clicked =play_button.rect.collidepoint(mouse_x,mouse_y) #collidepoint() 检查一个点是否在矩形内部。如果鼠标位置在按钮矩形内，就把游戏状态改为 True
+    
+    if button_clicked and not stats.game_active: 
         stats.reset_stats()
         stats.game_active = True
 
