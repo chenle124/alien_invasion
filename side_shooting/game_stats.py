@@ -3,4 +3,4 @@ class GameStats:
 
     def __init__(self):
         self.missed_shots = 0 #没有命中目标的子弹数量，初始为 0
-        self.game_active = True
+        self.game_active = False
