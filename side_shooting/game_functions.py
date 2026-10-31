@@ -94,7 +94,7 @@ def fire_bullet(ai_settings,screen,ship,bullets):
         bullets.add(new_bullet)
 
 
-def check_play_button(bullets,stats,play_button,mouse_x,mouse_y):
+def check_play_button(bullets,target,stats,play_button,mouse_x,mouse_y):
     """点击Play按钮时启动游戏"""
 
     button_clicked = play_button.rect.collidepoint(mouse_x,mouse_y)
@@ -102,4 +102,5 @@ def check_play_button(bullets,stats,play_button,mouse_x,mouse_y):
     if button_clicked and not stats.game_active:
         stats.reset_stats()
         bullets.empty()
+        target.reset_position()
         stats.game_active = True
