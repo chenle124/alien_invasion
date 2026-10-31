@@ -23,7 +23,7 @@ def run_game():
     stats = GameStats()
 
     while True:
-        gf.check_events(ai_settings, screen, ship, bullets)
+        gf.check_events(ai_settings, screen, ship, bullets,stats)
 
         if stats.game_active:
             ship.update() #更新一艘飞船的位置
