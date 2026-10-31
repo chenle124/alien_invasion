@@ -24,10 +24,15 @@ def run_game():
 
     while True:
         gf.check_events(ai_settings, screen, ship, bullets)
-        ship.update() #更新一艘飞船的位置
-        gf.update_bullets(bullets,stats)
-        target.update()
-        gf.check_bullet_target_collision(bullets,target)
+
+        if stats.game_active:
+            ship.update() #更新一艘飞船的位置
+            target.update()
+            gf.update_bullets(bullets,stats)
+
+            if stats.game_active: #碰撞检测使用的是本轮更新后的位置。第二个 if 则确保第三次未命中后，本轮不再处理目标碰撞。
+                gf.check_bullet_target_collision(bullets,target)
+
         gf.update_screen(ai_settings,screen,ship,bullets,target)
 
 run_game()
