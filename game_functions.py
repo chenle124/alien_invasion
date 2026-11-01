@@ -99,6 +99,11 @@ def check_bullet_alien_collisions(ai_settings,screen,aliens,ship,bullets,stats,s
     if len(aliens) == 0:
         bullets.empty()
         ai_settings.increase_speed()
+
+        #提高等级，并更新等级图像
+        stats.level += 1
+        sb.prep_level()
+        
         create_fleet(ai_settings,screen,aliens,ship)
 
 
