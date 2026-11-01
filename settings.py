@@ -28,6 +28,9 @@ class Settings:
         #每次升级时，速度变为原来的1.1倍
         self.speedup_scale = 1.1
 
+        #每次升级时，外星人的分值变为原来的1.5倍
+        self.score_scale = 1.5
+
         self.initialize_dynamic_settings()
 
 
@@ -43,8 +46,10 @@ class Settings:
 
 
     def increase_speed(self):
-        """提高飞船、子弹和外星人的速度"""
+        """提高速度和外星人的分值"""
 
         self.ship_speed_factor *= self.speedup_scale
         self.bullet_speed_factor *= self.speedup_scale
         self.alien_speed_factor *= self.speedup_scale
+
+        self.alien_points = int(self.alien_points * self.score_scale) #无论以后升多少级，让每个外星人的分值保持整数
