@@ -16,6 +16,7 @@ class Scoreboard:
         self.font = pygame.font.Font(None,48)
 
         self.prep_score()
+        self.prep_high_score()
 
 
     def prep_score(self):
