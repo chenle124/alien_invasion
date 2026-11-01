@@ -69,7 +69,7 @@ def update_screen(ai_settings,screen,ship,aliens,bullets,stats,play_button,sb):
     pygame.display.flip() #更新窗口画面
 
 
-def update_bullets(ai_settings,screen,aliens,ship,bullets):
+def update_bullets(ai_settings,screen,aliens,ship,bullets,stats,sb):
     """更新子弹位置，并移除已飞出屏幕的子弹"""
 
     bullets.update() #bullets 是一个编组。不仅能保存子弹，还自带一个 update() 方法，负责逐个调用成员的 update()。
@@ -78,7 +78,7 @@ def update_bullets(ai_settings,screen,aliens,ship,bullets):
         if bullet.rect.bottom <=0:
             bullets.remove(bullet) #修改原编组
 
-    check_bullet_alien_collisions(ai_settings,screen,aliens,ship,bullets)
+    check_bullet_alien_collisions(ai_settings,screen,aliens,ship,bullets,stats,sb)
 
 
 def check_bullet_alien_collisions(ai_settings,screen,aliens,ship,bullets,stats,sb):
