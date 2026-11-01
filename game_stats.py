@@ -1,3 +1,5 @@
+import json
+
 class GameStats:
     """跟踪游戏的统计信息"""
 
@@ -11,7 +13,12 @@ class GameStats:
         self.game_active = False
 
         #开始新一局时保留最高得分
-        self.high_score = 0
+        try:
+            with open("high_score.json") as f:
+                self.high_score = json.load(f)
+
+        except FileNotFoundError:
+            self.high_score = 0
 
 
     def reset_stats(self):
