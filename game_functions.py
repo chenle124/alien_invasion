@@ -94,6 +94,7 @@ def check_bullet_alien_collisions(ai_settings,screen,aliens,ship,bullets,stats,s
             stats.score += ai_settings.alien_points * len(hit_aliens) #注意：hit_aliens 每次拿到的是一个列表，而不是单个外星人。
 
             sb.prep_score() #根据新得分重新生成文字图像
+            check_high_score(stats,sb)
 
     if len(aliens) == 0:
         bullets.empty()
