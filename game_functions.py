@@ -181,11 +181,12 @@ def check_fleet_edges(ai_settings,aliens):
             break #break 用来退出这次 for 循环，避免同一轮中多个外星人碰到边缘，导致整个编队重复下降、反复改变方向。
 
 
-def ship_hit(ai_settings,screen,aliens,ship,bullets,stats):
+def ship_hit(ai_settings,screen,aliens,ship,bullets,stats,sb):
     """响应飞船被外星人撞到"""
 
     if stats.ships_left > 0:
         stats.ships_left -= 1
+        sb.prep_ships()
         
         aliens.empty()
         bullets.empty()
