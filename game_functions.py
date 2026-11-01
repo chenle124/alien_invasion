@@ -103,7 +103,7 @@ def check_bullet_alien_collisions(ai_settings,screen,aliens,ship,bullets,stats,s
         #提高等级，并更新等级图像
         stats.level += 1
         sb.prep_level()
-        
+
         create_fleet(ai_settings,screen,aliens,ship)
 
 
@@ -212,7 +212,7 @@ def check_aliens_bottom(ai_settings,screen,aliens,ship,bullets,stats):
             break #这里的 break 有明确用途：发现一个外星人到达底端，就处理一次，然后停止检查旧的外星人列表。因为 ship_hit() 已经清空旧编组并创建了新群，继续检查旧列表可能导致重复扣除飞船数量。
 
 
-def check_play_button(ai_settings,screen,aliens,ship,bullets,stats,play_button,mouse_x,mouse_y):
+def check_play_button(ai_settings,screen,aliens,ship,bullets,stats,play_button,sb,mouse_x,mouse_y):
     """玩家点击Play按钮时开始游戏"""
 
     button_clicked =play_button.rect.collidepoint(mouse_x,mouse_y) #collidepoint() 检查一个点是否在矩形内部。如果鼠标位置在按钮矩形内，就把游戏状态改为 True
@@ -223,6 +223,11 @@ def check_play_button(ai_settings,screen,aliens,ship,bullets,stats,play_button,m
         pygame.mouse.set_visible(False)
         stats.reset_stats()
         stats.game_active = True
+
+        #根据重置后的数据，更新记分牌图像
+        sb.prep_score()
+        sb.prep_high_score() #可不写，因为真正需要更新最高分图像时，是玩家打破纪录的时候
+        sb.prep_level()
 
         aliens.empty()
         bullets.empty()
