@@ -10,6 +10,9 @@ class GameStats:
         #游戏启动时先处于非活跃状态
         self.game_active = False
 
+        #开始新一局时保留最高得分
+        self.high_score = 0
+
 
     def reset_stats(self):
         """重置游戏运行期间会变化的统计信息"""
