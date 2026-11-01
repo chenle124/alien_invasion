@@ -12,7 +12,7 @@ def check_events(ai_settings, screen, aliens,ship, bullets,stats,play_button,sb)
 
     for event in pygame.event.get(): #逐个处理事件。“事件”就是点击鼠标、按下键盘、点击关闭按钮等操作。
         if event.type == pygame.QUIT: #event.type：当前事件的类型。pygame.QUIT：Pygame 中表示“请求关闭窗口”的常量，注意是大写。
-            save_high_score(stats)
+            save_high_score(stats) #必须先保存，再退出：sys.exit() 执行后，后面的保存语句就没有机会运行了
             sys.exit() #退出程序
 
         elif event.type == pygame.KEYDOWN:
