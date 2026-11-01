@@ -29,7 +29,7 @@ def run_game():
     sb = Scoreboard(ai_settings,screen,stats) #必须先创建 stats，才能把它传给 Scoreboard
 
     while True:
-        gf.check_events(ai_settings,screen,aliens,ship,bullets,stats,play_button)
+        gf.check_events(ai_settings,screen,aliens,ship,bullets,stats,play_button,sb)
 
         if stats.game_active: #游戏结束后，窗口会保留，画面中的物体停止移动。
             ship.update() #更新一艘飞船的位置
