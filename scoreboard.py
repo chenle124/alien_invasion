@@ -18,10 +18,7 @@ class Scoreboard:
         self.text_color = (30,30,30)
         self.font = pygame.font.Font(None,48)
 
-        self.prep_score()
-        self.prep_high_score()
-        self.prep_level()
-        self.prep_ships()
+        self.prep_images()
 
 
     def prep_score(self):
@@ -81,3 +78,12 @@ class Scoreboard:
             ship.rect.x = 10 + ship_number * ship.rect.width
             ship.rect.y = 10
             self.ships.add(ship)
+
+
+    def prep_images(self):
+        """准备记分牌的所有图像"""
+
+        self.prep_score()
+        self.prep_high_score()
+        self.prep_level()
+        self.prep_ships()
