@@ -22,7 +22,7 @@ class Scoreboard:
         """将得分转换为图像"""
 
         rounded_score = round(self.stats.score,-1) #round(..., -1) 表示圆整到十位
-        score_str = str(rounded_score)
+        score_str = f"{rounded_score:,}" #也可以写成: {:,}.format(rounded_score) {:,} 中的逗号表示：把数字转换成字符串时，每隔三位添加一个逗号
         self.score_image = self.font.render(score_str,True,self.text_color,self.ai_settings.bg_color)
 
         #将得分放到屏幕右上角
