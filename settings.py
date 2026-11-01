@@ -39,6 +39,8 @@ class Settings:
 
         self.fleet_direction = 1 # 1 表示向右，-1 表示向左
 
+        self.alien_points = 50
+
 
     def increase_speed(self):
         """提高飞船、子弹和外星人的速度"""
