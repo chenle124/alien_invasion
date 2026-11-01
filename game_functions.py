@@ -257,7 +257,7 @@ def start_new_level(ai_settings,screen,aliens,ship,bullets,stats,sb):
     """开始下一关"""
 
     bullets.empty()
-    ai_settings.increase_speed()
+    ai_settings.increase_speed() #作用是：进入下一关时，提高飞船、子弹、外星人的速度，以及每个外星人的分值。
 
     stats.level += 1
     sb.prep_level()
