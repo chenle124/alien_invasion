@@ -251,3 +251,15 @@ def save_high_score(stats):
 
     with open("high_score.json","w") as f:
         json.dump(stats.high_score,f)
+
+
+def start_new_level(ai_settings,screen,aliens,ship,bullets,stats,sb):
+    """开始下一关"""
+
+    bullets.empty()
+    ai_settings.increase_speed()
+
+    stats.level += 1
+    sb.prep_level()
+
+    create_fleet(ai_settings,screen,aliens,ship)
