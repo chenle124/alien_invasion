@@ -6,6 +6,7 @@ from ship import Ship
 import game_functions as gf
 from game_stats import GameStats
 from button import Button
+from scoreboard import Scoreboard
 
 def run_game():
     pygame.init() #初始化Pygame，为使用它的功能做好准备
@@ -25,6 +26,8 @@ def run_game():
 
     play_button = Button(screen,"Play")
 
+    sb = Scoreboard(ai_settings,screen,stats) #必须先创建 stats，才能把它传给 Scoreboard
+
     while True:
         gf.check_events(ai_settings,screen,aliens,ship,bullets,stats,play_button)
 
@@ -33,6 +36,6 @@ def run_game():
             gf.update_bullets(ai_settings,screen,aliens,ship,bullets)
             gf.update_aliens(ai_settings,screen,ship,aliens,bullets,stats)
 
-        gf.update_screen(ai_settings,screen,ship,aliens,bullets,stats,play_button)
+        gf.update_screen(ai_settings,screen,ship,aliens,bullets,stats,play_button,sb)
 
 run_game()
