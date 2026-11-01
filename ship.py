@@ -1,8 +1,11 @@
 import pygame
+from pygame.sprite import Sprite
 
-class Ship:
+class Ship(Sprite):
     def __init__(self,ai_settings,screen):
         """初始化飞船并设置其起始位置"""
+
+        super().__init__()
 
         self.screen = screen #右边的 screen：接收主程序传来的屏幕对象，是方法的参数。
         self.ai_settings = ai_settings #self.ai_settings：是飞船实例的 ai_settings 属性，里面保存的是主程序传进来的设置实例的引用。
