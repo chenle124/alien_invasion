@@ -61,5 +61,5 @@ class Scoreboard:
 
         #将等级放在当前得分下方
         self.level_rect = self.level_image.get_rect()
-        self.level_rect.right = self.screen_level.right
+        self.level_rect.right = self.screen_rect.right - 20
         self.level_rect.top = self.score_rect.bottom + 10
