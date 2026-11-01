@@ -202,14 +202,14 @@ def ship_hit(ai_settings,screen,aliens,ship,bullets,stats,sb):
 
 
 
-def check_aliens_bottom(ai_settings,screen,aliens,ship,bullets,stats):
+def check_aliens_bottom(ai_settings,screen,aliens,ship,bullets,stats,sb):
     """检查是否有外星人到达屏幕底部"""
 
     screen_rect = screen.get_rect()
 
     for alien in aliens.sprites():
         if alien.rect.bottom >= screen_rect.bottom:
-            ship_hit(ai_settings,screen,aliens,ship,bullets,stats)
+            ship_hit(ai_settings,screen,aliens,ship,bullets,stats,sb)
             break #这里的 break 有明确用途：发现一个外星人到达底端，就处理一次，然后停止检查旧的外星人列表。因为 ship_hit() 已经清空旧编组并创建了新群，继续检查旧列表可能导致重复扣除飞船数量。
 
 
