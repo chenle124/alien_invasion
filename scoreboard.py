@@ -17,6 +17,7 @@ class Scoreboard:
 
         self.prep_score()
         self.prep_high_score()
+        self.prep_level()
 
 
     def prep_score(self):
