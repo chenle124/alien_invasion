@@ -2,6 +2,7 @@ import sys
 
 import pygame
 from time import sleep
+import json
 
 from bullet import Bullet
 from alien import Alien
@@ -244,3 +245,10 @@ def check_high_score(stats,sb):
     if stats.high_score < stats.score:
         stats.high_score = stats.score
         sb.prep_high_score() #重新生成最高得分图像
+
+
+def save_high_score(stats):
+    """将最高得分保存到文件"""
+
+    with open("high_score.json","w") as f:
+        json.dump(stats.high_score,f)
