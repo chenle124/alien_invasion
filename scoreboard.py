@@ -38,11 +38,13 @@ class Scoreboard:
 
 
     def show_score(self):
-        """显示当前得分和最高分"""
+        """显示得分、最高分、等级和剩余飞船数"""
 
         self.screen.blit(self.score_image,self.score_rect)
         self.screen.blit(self.high_score_image,self.high_score_rect)
         self.screen.blit(self.level_image,self.level_rect)
+
+        self.ships.draw(self.screen) #和之前的 aliens.draw(screen) 一样，draw() 会读取编组中每个对象的 image 和 rect，将图像画到指定位置
 
 
     def prep_high_score(self):
