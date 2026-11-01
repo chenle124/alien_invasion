@@ -229,10 +229,7 @@ def check_play_button(ai_settings,screen,aliens,ship,bullets,stats,play_button,s
         stats.game_active = True
 
         #根据重置后的数据，更新记分牌图像
-        sb.prep_score()
-        sb.prep_high_score() #可不写，因为真正需要更新最高分图像时，是玩家打破纪录的时候
-        sb.prep_level()
-        sb.prep_ships()
+        sb.prep_images()
 
         aliens.empty()
         bullets.empty()
