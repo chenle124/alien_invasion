@@ -89,7 +89,7 @@ def check_bullet_alien_collisions(ai_settings,screen,aliens,ship,bullets,stats,s
     #注意：默认检测的是矩形重叠，不是图片中具体的轮廓
     
     if collisions:
-        stats.score = ai_settings.alien_points
+        stats.score += ai_settings.alien_points
         sb.prep_score() #根据新得分重新生成文字图像
 
     if len(aliens) == 0:
