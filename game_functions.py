@@ -100,15 +100,7 @@ def check_bullet_alien_collisions(ai_settings,screen,aliens,ship,bullets,stats,s
             check_high_score(stats,sb)
 
     if len(aliens) == 0:
-        bullets.empty()
-        ai_settings.increase_speed()
-
-        #提高等级，并更新等级图像
-        stats.level += 1
-        sb.prep_level()
-
-        create_fleet(ai_settings,screen,aliens,ship)
-
+        start_new_level(ai_settings,screen,aliens,ship,bullets,stats,sb)
 
 def fire_bullet(ai_settings,screen,ship,bullets):
     if len(bullets) < ai_settings.bullets_allowed:
