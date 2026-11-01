@@ -15,3 +15,5 @@ class GameStats:
         """重置游戏运行期间会变化的统计信息"""
 
         self.ships_left = self.ai_settings.ship_limit
+
+        self.score = 0
