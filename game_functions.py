@@ -230,5 +230,5 @@ def check_high_score(stats,sb):
     """检测是否产生了新的最高分"""
 
     if stats.high_score < stats.score:
-        stats.hight_score = stats.score
+        stats.high_score = stats.score
         sb.prep_high_score() #重新生成最高得分图像
