@@ -81,17 +81,22 @@ def update_bullets(ai_settings,screen,aliens,ship,bullets):
     check_bullet_alien_collisions(ai_settings,screen,aliens,ship,bullets)
 
 
-def check_bullet_alien_collisions(ai_settings,screen,aliens,ship,bullets):
+def check_bullet_alien_collisions(ai_settings,screen,aliens,ship,bullets,stats,sb):
     """检测子弹和外星人的碰撞，并在外星人被消灭后创建新群"""
     #检查是否有子弹击中了外星人
     collisions = pygame.sprite.groupcollide(bullets,aliens,True,True) #(第一个编组：子弹， 第二个编组：外星人， 发生碰撞时从子弹编组移除命中的子弹， 发生碰撞时从外星人编组移除被击中的外星人)
     #返回值 collisions 是一个字典，用来记录哪些子弹碰到了哪些外星人
     #注意：默认检测的是矩形重叠，不是图片中具体的轮廓
     
+    if collisions:
+        stats.score = ai_settings.alien_points
+        sb.prep_score() #根据新得分重新生成文字图像
+
     if len(aliens) == 0:
         bullets.empty()
         ai_settings.increase_speed()
         create_fleet(ai_settings,screen,aliens,ship)
+
 
 def fire_bullet(ai_settings,screen,ship,bullets):
     if len(bullets) < ai_settings.bullets_allowed:
